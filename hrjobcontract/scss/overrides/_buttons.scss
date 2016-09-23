@@ -1,0 +1,20 @@
+.btn {
+  &.btn-default:not(.btn-danger):not(.btn-primary) {
+    border: solid 1px $gray;
+    box-shadow: none;
+  }
+
+  &:not(.btn-collapse) {
+    text-transform: uppercase !important;
+  }
+
+  &.btn-collapse {
+    font-size: 12px;
+    color: $crm-copy;
+    font-weight: normal;
+
+    i {
+      font-size: 9px;
+    }
+  }
+}

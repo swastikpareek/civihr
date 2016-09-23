@@ -9,7 +9,7 @@
 #{$bootstrap-namespace} {
     // Reset CMS and old CiviCRM style
     @import "overrides/reset/drupal";
-    @if $bootstrap-namespace != "" { @import "overrides/reset/civicrm"; }
+    @import "overrides/reset/civicrm";
 
     @import "themes/default";
 }

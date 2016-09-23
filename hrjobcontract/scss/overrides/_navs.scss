@@ -1,0 +1,63 @@
+.nav-tabs {
+  li {
+    > a {
+      color: $brand-primary;
+      font-weight: 600;
+    }
+
+    &.active {
+      > a,
+      > a:hover,
+      > a:focus {
+        color: $crm-dark-blue;
+        border: {
+          color: $crm-background;
+          style: solid;
+          width: 1px;
+          bottom-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.tab-content {
+  background-color: $brand-secondary;
+  margin-bottom: 20px;
+  border: {
+    color: $crm-table-striped-bg;
+    style: solid;
+    width: 1px;
+    top: 0;
+  }
+
+  h4 {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+  }
+
+  >.tab-pane {
+    border-radius: 2px;
+
+    &:first-child {
+      border-radius: 0 2px 2px 2px;
+    }
+
+    h4 {
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+
+  > .active {
+    display: block;
+
+    > a {
+      color: $gray;
+      background-color: $brand-secondary;
+      border: 1px solid $crm-background;
+      border-bottom-color: transparent;
+      cursor: default;
+    }
+  }
+}

@@ -2,20 +2,20 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
-var bulk = require('gulp-sass-bulk-import');
 var sass = require('gulp-sass');
 var karma = require('karma');
 var exec = require('child_process').exec;
 var path = require('path');
 var fs = require('fs');
+var nodeSassGlobbing = require('node-sass-globbing');
 
-gulp.task('sass', function (done) {
-    // The app style relies on compass's gems, so we need to rely on it
-    // for the time being
-    exec('compass compile', function (_, stdout, stderr) {
-        console.log(stdout);
-        done();
-    });
+gulp.task('sass', function () {
+  gulp.src('scss/*.scss')
+    .pipe(sass({
+      outputStyle: 'expanded',
+      importer: nodeSassGlobbing,
+    }).on('error', sass.logError))
+    .pipe(gulp.dest('css/'));
 });
 
 gulp.task('requirejs-bundle', function (done) {

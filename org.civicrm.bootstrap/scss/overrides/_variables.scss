@@ -1,7 +1,6 @@
 // Namespace for the entire theme
 // Set it to an empty string to remove the namespace
-$bootstrap-namespace : "#bootstrap-theme";
-
+$bootstrap-namespace : "#bootstrap-theme" !default;
 //== Iconography
 //
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
