@@ -1,8 +1,9 @@
 {assign var="module" value="hrjob-contract" }
 {assign var="prefix" value="hrjc-" }
 
-<div id="{$module}" hrjc-loader hrjc-loader-show="true">
-  <div class="container" ng-view>
+<div id="bootstrap-theme" hrjc-loader hrjc-loader-show="true">
+  <div id="{$module}">
+    <div class="container" ng-view></div>
   </div>
 </div>
 {literal}
