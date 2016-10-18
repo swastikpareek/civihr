@@ -2,7 +2,7 @@
 {assign var="prefix" value="hrjobroles-" }
 
 <div id="{$module}" >
-  <div class="container" ng-view></div>
+  <div id="bootstrap-theme" class="container" ng-view></div>
 </div>
 {literal}
 <script type="text/javascript">
