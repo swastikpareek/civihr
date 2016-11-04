@@ -300,6 +300,13 @@ class CRM_Hrjobcontract_DAO_Base extends CRM_Core_DAO
             ));
         }
         
+        if (!empty($previousEntity)) {
+          // Update previous instance (the previous revision's entity) with
+          // it's original jobcontract_revision_id value as it may have been
+          // overriden with SQL CASCADE rule.
+          $previousInstance->save();
+        }
+
         if (!empty($previousEntity))
         {
             unset($previousEntity['id']);
