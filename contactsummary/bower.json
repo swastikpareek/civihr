@@ -1,0 +1,13 @@
+{
+  "name": "contact-summary",
+  "description": "CiviHR Contact Summary",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/src/contact-summary/vendor/",
+    "test",
+    "tests"
+  ]
+}
