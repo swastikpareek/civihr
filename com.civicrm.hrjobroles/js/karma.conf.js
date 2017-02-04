@@ -5,7 +5,7 @@ module.exports = function (config) {
 
   config.set({
     basePath: civicrmPath,
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
     frameworks: ['jasmine'],
     files: [
       // the global dependencies
