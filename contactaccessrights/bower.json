@@ -1,0 +1,13 @@
+{
+  "name": "uk.co.compucorp.contactaccessrights",
+  "description": "CiviHR Contact Access Rights",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/src/access-rights/vendor/",
+    "test",
+    "tests"
+  ]
+}
