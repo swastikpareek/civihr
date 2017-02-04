@@ -1,0 +1,17 @@
+{
+  "name": "com.civicrm.hrjobroles",
+  "description": "CiviHR Job Roles",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/src/job-roles/vendor/",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-filter": "~0.5.4",
+    "angular-xeditable": "~0.1.8"
+  }
+}
