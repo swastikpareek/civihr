@@ -2,11 +2,10 @@
   var extPath = CRM.vars.hrjobroles.baseURL + '/js/src/job-roles';
 
   require.config({
-    urlArgs: 'bust=' + (new Date()).getTime(),
     paths: {
       'job-roles': extPath,
-      'job-roles/vendor/angular-editable': extPath + '/vendor/angular/xeditable.min',
-      'job-roles/vendor/angular-filter': extPath + '/vendor/angular/angular-filter.min'
+      'job-roles/vendor/angular-editable': extPath + '/vendor/angular-xeditable/dist/js/xeditable.min',
+      'job-roles/vendor/angular-filter': extPath + '/vendor/angular-filter/dist/angular-filter.min'
     }
   });
 
