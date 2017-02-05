@@ -1,0 +1,13 @@
+{
+  "name": "org.civihr.bootstrap",
+  "description": "CiviCRM Bootstrap theme extension (CiviHR)",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/vendor/",
+    "test",
+    "tests"
+  ]
+}
