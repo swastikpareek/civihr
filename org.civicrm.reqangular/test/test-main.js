@@ -55,7 +55,7 @@ require.config({
     'common/angularRoute': srcPath + '/vendor/angular-route/angular-route.min',
     'common/angularUiRouter': srcPath + '/vendor/angular-ui-router/release/angular-ui-router.min',
     'common/angularMocks': srcPath + '/vendor/angular-mocks/angular-mocks',
-    'common/angularBootstrap': srcPath + '/vendor/angular-bootstrap/ui-bootstrap.min',
+    'common/angularBootstrap': srcPath + '/vendor/angular-bootstrap/ui-bootstrap-tpls.min',
     'common/lodash': srcPath + '/vendor/lodash/lodash.min',
     'common/moment': srcPath + '/vendor/moment/min/moment.min',
     'common/text-angular-sanitize': srcPath + '/vendor/textAngular/dist/textAngular-sanitize.min',

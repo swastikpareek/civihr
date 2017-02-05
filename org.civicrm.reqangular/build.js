@@ -8,7 +8,7 @@
   paths: {
     'common/angular': 'common/vendor/angular/angular',
     'common/angularAnimate': 'common/vendor/angular-animate/angular-animate',
-    'common/angularBootstrap': 'common/vendor/angular-bootstrap/ui-bootstrap',
+    'common/angularBootstrap': 'common/vendor/angular-bootstrap/ui-bootstrap-tpls',
     'common/angularFileUpload': 'common/vendor/angular-file-upload/angular-file-upload',
     'common/angularMocks': 'common/vendor/angular-mocks/angular-mocks',
     'common/angularResource': 'common/vendor/angular-resource/angular-resource',
