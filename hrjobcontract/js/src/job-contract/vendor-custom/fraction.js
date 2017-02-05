@@ -26,7 +26,7 @@ THE SOFTWARE.
 
 
 /* Fractions */
-/* 
+/*
  *
  * Fraction objects are comprised of a numerator and a denomenator.  These
  * values can be accessed at fraction.numerator and fraction.denomenator.

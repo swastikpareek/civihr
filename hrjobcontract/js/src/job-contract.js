@@ -2,11 +2,10 @@
   var extPath = CRM.jobContractTabApp.path + 'js/src/job-contract';
 
   require.config({
-    urlArgs: 'bust=' + (new Date()).getTime(),
     paths: {
       'job-contract': extPath,
-      'job-contract/vendor/fraction': extPath + '/vendor/fraction',
-      'job-contract/vendor/job-summary': extPath + '/vendor/jobsummary'
+      'job-contract/vendor/fraction': extPath + '/vendor-custom/fraction',
+      'job-contract/vendor/job-summary': extPath + '/vendor-custom/jobsummary'
     },
     shim: {
       'job-contract/vendor/job-summary': {
