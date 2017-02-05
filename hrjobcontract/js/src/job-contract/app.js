@@ -1,5 +1,6 @@
 define([
     'common/angular',
+    'common/angularFileUpload',
     'common/ui-select',
     'common/services/dom-event-trigger',
     'common/services/angular-date/date-format',
