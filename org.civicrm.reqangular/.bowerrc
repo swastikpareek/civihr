@@ -1,4 +1,8 @@
 {
   "directory": "src/common/vendor/",
-  "ignoredDependencies": []
+  "ignoredDependencies": [
+    "font-awesome",
+    "es5-shim",
+    "rangy"
+  ]
 }
