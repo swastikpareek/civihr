@@ -1,3 +1,6 @@
 {
-  "directory": "js/src/job-roles/vendor/"
+  "directory": "js/src/job-roles/vendor/",
+  "ignoredDependencies": [
+    "angular"
+  ]
 }
