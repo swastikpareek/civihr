@@ -1,0 +1,13 @@
+{
+  "name": "org.civicrm.reqangular",
+  "description": "Common dependencies for CiviHR angular apps",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/src/common/vendor/",
+    "test",
+    "tests"
+  ]
+}
