@@ -1,28 +1,26 @@
 {
   "name": "org.civicrm.reqangular",
-  "version": "1.0.0",
   "description": "Common dependencies for CiviHR angular apps",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bower": "bower",
+    "gulp": "gulp",
+    "postinstall": "bower install"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-angular-templatecache": "^1.8.0",
-    "gulp-clean": "^0.3.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-sass": "^2.1.0",
-    "gulp-sass-bulk-import": "^0.3.2",
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.15",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-jasmine": "^0.3.6",
-    "karma-ng-html2js-preprocessor": "^0.2.0",
-    "karma-requirejs": "^0.2.2",
-    "path": "^0.12.7",
-    "requirejs": "^2.1.22"
+    "bower": "~1.8.0",
+    "gulp": "~3.9.1",
+    "gulp-angular-templatecache": "~1.9.1",
+    "gulp-clean": "~0.3.2",
+    "gulp-rename": "~1.2.2",
+    "gulp-replace": "~0.5.4",
+    "jasmine-core": "~2.5.2",
+    "karma": "~1.4.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-ng-html2js-preprocessor": "~1.0.0",
+    "karma-phantomjs-launcher": "~1.0.2",
+    "karma-requirejs": "~1.1.0",
+    "path": "~0.12.7",
+    "requirejs": "~2.3.2"
   }
 }
