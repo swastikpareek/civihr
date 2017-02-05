@@ -1,0 +1,6 @@
+{
+  "directory": "js/src/job-contract/vendor/",
+  "ignoredDependencies": [
+    "angular"
+  ]
+}

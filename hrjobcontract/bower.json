@@ -1,0 +1,13 @@
+{
+  "name": "hrjobcontract",
+  "description": "CiviHR Job Contract",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/src/job-contract/vendor/",
+    "test",
+    "tests"
+  ]
+}
