@@ -22,9 +22,6 @@ module.exports = function (config) {
       extPath + 'node_modules/requirejs/require.js',
       extPath + 'node_modules/karma-requirejs/lib/adapter.js',
 
-      // load vendor libraries
-      { pattern: extPath + 'src/common/vendor/*.min.js', included: false },
-
       // load modules
       { pattern: extPath + 'src/common/**/*.js', included: false },
 
@@ -36,9 +33,6 @@ module.exports = function (config) {
 
       // the requireJS config file that bootstraps the whole test suite
       extPath + 'test/test-main.js'
-    ],
-    exclude: [
-      extPath + 'src/common/angular-date/**/*.js'
     ]
   });
 };
