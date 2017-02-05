@@ -88,7 +88,7 @@ class CRM_HRAbsence_Page_EmployeeAbsencePage extends CRM_Core_Page {
         ),
       );
     })
-      ->addScriptFile('org.civicrm.reqangular', 'src/common/vendor/moment.min.js', 100, 'html-header', FALSE)
+      ->addScriptFile('org.civicrm.reqangular', 'src/common/vendor/moment/min/moment.min.js', 100, 'html-header', FALSE)
       ->addScriptFile('civicrm', 'packages/backbone/json2.js', 100, 'html-header', FALSE)
       ->addScriptFile('civicrm', 'packages/backbone/backbone.js', 120, 'html-header')
       ->addScriptFile('civicrm', 'packages/backbone/backbone.marionette.js', 125, 'html-header', FALSE)
