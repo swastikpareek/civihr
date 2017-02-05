@@ -1,22 +1,22 @@
 {
   "name": "org.civihr.bootstrap",
-  "version": "1.0.0",
   "description": "CiviCRM Bootstrap theme extension (CiviHR)",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bower": "bower",
+    "gulp": "gulp",
+    "postinstall": "bower install"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.0",
+    "bower": "~1.8.0",
+    "gulp": "~3.9.1",
     "gulp-postcss": "~6.1.1",
     "node-sass": "3.4.2",
     "gulp-sass": "^2.1.0",
-    "gulp-sass-bulk-import": "^0.3.2",
-    "gulp-strip-css-comments": "^1.2.0",
-    "gulp-transform-selectors": "0.0.2",
+    "gulp-sass-bulk-import": "~1.0.1",
+    "gulp-strip-css-comments": "~1.2.0",
+    "gulp-transform-selectors": "~0.0.2",
     "postcss-discard-duplicates": "~2.0.1",
-    "postcss-prefix-selector": "~1.4.0"
+    "postcss-prefix-selector": "~1.5.0"
   }
 }
