@@ -1,6 +1,6 @@
 <?php
 
-use CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculation as ContractEntitlementCalculation;
+use CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculationInDays as ContractEntitlementCalculation;
 use CRM_HRLeaveAndAbsences_BAO_AbsencePeriod as AbsencePeriod;
 use CRM_HRLeaveAndAbsences_BAO_LeavePeriodEntitlement as LeavePeriodEntitlement;
 use CRM_HRLeaveAndAbsences_BAO_AbsenceType as AbsenceType;
@@ -73,7 +73,7 @@ class CRM_HRLeaveAndAbsences_Service_EntitlementCalculation {
    * Variable to cache the return from the getContractEntitlementCalculations()
    * method.
    *
-   * @var \CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculation[]
+   * @var \CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculationInDays[]
    */
   private $contractsEntitlementCalculations = null;
 
@@ -119,7 +119,7 @@ class CRM_HRLeaveAndAbsences_Service_EntitlementCalculation {
    * Returns an array of ContractEntitlementCalculation instances for all the
    * contracts of this calculation's contact during the Absence Period
    *
-   * @return \CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculation[]
+   * @return \CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculationInDays[]
    */
   public function getContractEntitlementCalculations() {
     if($this->contractsEntitlementCalculations === null) {
