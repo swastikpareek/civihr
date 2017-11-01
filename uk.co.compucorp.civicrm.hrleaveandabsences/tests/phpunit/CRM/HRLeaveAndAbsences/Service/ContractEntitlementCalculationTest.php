@@ -85,7 +85,7 @@ class CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculationTest extends 
 
     $calculation = new ContractEntitlementCalculation($period, [], new AbsenceType());
 
-    $this->assertEquals(260, $calculation->getNumberOfWorkingDays());
+    $this->assertEquals(260, $calculation->getAmountOfWorkingTime());
   }
 
   public function testNumberOfWorkingDaysToWorkShouldBeTheNumberOfWorkingDaysBetweenTheContractDates() {
@@ -104,7 +104,7 @@ class CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculationTest extends 
 
     $calculation = new ContractEntitlementCalculation($period, $this->contract, new AbsenceType());
 
-    $this->assertEquals(150, $calculation->getNumberOfWorkingDaysToWork());
+    $this->assertEquals(150, $calculation->getAmountOfWorkingTimeToWork());
   }
 
   public function testContractualEntitlementShouldBeZeroIfThereIsNoContractualEntitlement() {

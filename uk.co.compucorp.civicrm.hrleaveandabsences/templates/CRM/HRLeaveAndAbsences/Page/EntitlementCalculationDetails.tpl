@@ -20,8 +20,8 @@
       {assign var=startDate value=$contractCalculation->getContractStartDate()|crmDate}
       {assign var=endDate value=$contractCalculation->getContractEndDate()|crmDate}
       {assign var=contractualEntitlement value=$contractCalculation->getContractualEntitlement()}
-      {assign var=workingDaysToWork value=$contractCalculation->getNumberOfWorkingDaysToWork()}
-      {assign var=workingDays value=$contractCalculation->getNumberOfWorkingDays()}
+      {assign var=workingDaysToWork value=$contractCalculation->getAmountOfWorkingTimeToWork()}
+      {assign var=workingDays value=$contractCalculation->getAmountOfWorkingTime()}
       {assign var=proRata value=$contractCalculation->getProRata()|string_format:"%.2f"}
       {assign var=publicHolidays value=$contractCalculation->getNumberOfPublicHolidaysInEntitlement()}
 

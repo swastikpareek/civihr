@@ -21,8 +21,8 @@ class CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculationInDays
    * @return float
    */
   public function getProRata() {
-    $numberOfWorkingDaysToWork = $this->getNumberOfWorkingDaysToWork();
-    $numberOfWorkingDays = $this->getNumberOfWorkingDays();
+    $numberOfWorkingDaysToWork = $this->getAmountOfWorkingTimeToWork();
+    $numberOfWorkingDays = $this->getAmountOfWorkingTime();
 
     $contractualEntitlement = $this->getContractualEntitlement();
 
@@ -37,7 +37,7 @@ class CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculationInDays
    *
    * @return int
    */
-  public function getNumberOfWorkingDaysToWork() {
+  public function getAmountOfWorkingTimeToWork() {
     return $this->period->getNumberOfWorkingDaysToWork(
       $this->contract['period_start_date'],
       $this->contract['period_end_date']
@@ -49,27 +49,7 @@ class CRM_HRLeaveAndAbsences_Service_ContractEntitlementCalculationInDays
    *
    * @return int
    */
-  public function getNumberOfWorkingDays() {
-    return $this->period->getNumberOfWorkingDays();
-  }
-
-  /**
-   * Returns the amount of working time (days, hours, etc) available during this
-   * calculation's Absence Period
-   *
-   * @return int
-   */
   public function getAmountOfWorkingTime() {
-    // TODO: Implement getAmountOfWorkingTime() method.
-  }
-
-  /**
-   * Returns the amount of working time (days, hours, etc) that will be worked
-   * within this contract period
-   *
-   * @return int
-   */
-  public function getAmountOfWorkingTimeToWork() {
-    // TODO: Implement getAmountOfWorkingTimeToWork() method.
+    return $this->period->getNumberOfWorkingDays();
   }
 }
