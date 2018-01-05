@@ -46,6 +46,6 @@
     <path>civicrm/hr-report</path>
     <title>Report</title>
     <page_callback>CRM_HRCore_Page_Report</page_callback>
-    <access_arguments>access civicrm</access_arguments>
+    <access_arguments>administer CiviCRM</access_arguments>
   </item>
 </menu>
