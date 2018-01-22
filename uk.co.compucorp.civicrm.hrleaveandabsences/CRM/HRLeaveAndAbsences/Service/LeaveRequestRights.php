@@ -67,7 +67,8 @@ class CRM_HRLeaveAndAbsences_Service_LeaveRequestRights {
   public function canChangeAbsenceTypeFor($contactID, $statusID) {
     $isOpenLeaveRequest = in_array($statusID, LeaveRequest::getOpenStatuses());
 
-    return $this->currentUserIsLeaveContact($contactID) && $isOpenLeaveRequest;
+    return $this->currentUserIsAdmin() ||
+           ($this->currentUserIsLeaveContact($contactID) && $isOpenLeaveRequest);
   }
 
   /**
