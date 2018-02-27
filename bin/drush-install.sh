@@ -34,8 +34,7 @@ org.civicrm.reqangular,\
 org.civicrm.contactsummary,\
 org.civicrm.shoreditch,\
 org.civicrm.bootstrapcivihr,\
-org.civicrm.styleguide,\
-uk.co.compucorp.civicrm.hrcontactactionsmenu
+org.civicrm.styleguide
 
 ##################################
 ## Main
