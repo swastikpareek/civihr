@@ -52,6 +52,7 @@ trait CRM_HRCore_Upgrader_Steps_1000 {
    *   4- setting the system language to UK english (en_GB)
    */
   private function up1000_updateLocalisationSettings() {
+    // Setting the default currency here will automatically enable it in Civi
     $settings = [
       'defaultCurrency' => 'GBP',
       'dateformatDatetime' => '%d/%m/%Y %l:%M %P',
@@ -74,7 +75,6 @@ trait CRM_HRCore_Upgrader_Steps_1000 {
     civicrm_api3('Setting', 'create', $settings);
 
     $currenciesToEnable = [
-      ['GBP (£)','GBP', 1],
       ['EUR (€)','EUR', 0],
     ];
 
