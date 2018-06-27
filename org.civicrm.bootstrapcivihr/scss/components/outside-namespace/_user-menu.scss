@@ -32,6 +32,7 @@ $chr-user-menu-dropdown-item-gap: 0 30px 0 20px;
 
 .chr_user-menu__dropdown {
   background: $chr-user-menu-dropdown-bg;
+  box-shadow: $chr-user-menu-box-shadow;
   display: none;
   position: absolute;
   right: 0;
