@@ -1381,8 +1381,9 @@ class CRM_Hrjobcontract_Upgrader extends CRM_Hrjobcontract_Upgrader_Base {
             ]
         );
 
-        return TRUE;
-    }
+    return TRUE;
+  }
+
   /**
    * Creates a navigation menu item using the API
    *
