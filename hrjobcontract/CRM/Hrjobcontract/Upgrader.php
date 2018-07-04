@@ -96,6 +96,15 @@ class CRM_Hrjobcontract_Upgrader extends CRM_Hrjobcontract_Upgrader_Base {
     }
 
     $i = 4;
+    $params = array(
+      'option_group_id' => 'hrjc_contract_type',
+      'name' => 'Employee_Permanent',
+      'weight' => $i,
+      'label' => 'Employee - Permanent',
+      'value' => 'Employee - Permanent',
+    );
+    civicrm_api3('OptionValue', 'create',$params);
+
     $optionGroupID = CRM_Core_DAO::getFieldValue('CRM_Core_DAO_OptionGroup', 'hrjc_contract_type', 'id', 'name');
     foreach (array('Intern','Trustee','Volunteer') as $opName) {
       $i++;
@@ -1188,7 +1197,7 @@ class CRM_Hrjobcontract_Upgrader extends CRM_Hrjobcontract_Upgrader_Base {
       'HRJob_Summary',
       'HRJobContract_Summary'
     ];
-    
+
     $result = civicrm_api3('CustomGroup', 'get', [
       'return' => ['id', 'name'],
       'name' => ['IN' => $customGroups],
@@ -1256,7 +1265,7 @@ class CRM_Hrjobcontract_Upgrader extends CRM_Hrjobcontract_Upgrader_Base {
 
     return TRUE;
   }
-  
+
   /**
    * Changes the url of Standard Full Time Hours
    *
@@ -1270,10 +1279,10 @@ class CRM_Hrjobcontract_Upgrader extends CRM_Hrjobcontract_Upgrader_Base {
         'url' => 'civicrm/standard_full_time_hours'
       ],
     ]);
-    
+
     return TRUE;
   }
-  
+
   /**
    * Renames page title from job contract benefit name to benefits
    *
@@ -1288,10 +1297,10 @@ class CRM_Hrjobcontract_Upgrader extends CRM_Hrjobcontract_Upgrader_Base {
         'is_active' => 1
       ],
     ]);
-    
+
     return TRUE;
   }
-  
+
   /**
    * Renames page title from job contract deduction name to deductions
    *
@@ -1306,10 +1315,10 @@ class CRM_Hrjobcontract_Upgrader extends CRM_Hrjobcontract_Upgrader_Base {
         'is_active' => 1
       ],
     ]);
-    
+
     return TRUE;
   }
-  
+
   /**
    * Renames option group title from job contract revision change reason to
    * contract revision reasons
@@ -1325,10 +1334,10 @@ class CRM_Hrjobcontract_Upgrader extends CRM_Hrjobcontract_Upgrader_Base {
         'is_active' => 1
       ]
     ]);
-    
+
     return TRUE;
   }
-  
+
   /**
    * Renames option group title from job contract end reason
    * to contract end reasons
@@ -1344,10 +1353,36 @@ class CRM_Hrjobcontract_Upgrader extends CRM_Hrjobcontract_Upgrader_Base {
         'is_active' => 1
       ],
     ]);
-    
+
     return TRUE;
   }
-  
+
+    /**
+     * Updates the custom field to view only and disables the custom group
+     *
+     * @return bool
+     */
+    public function upgrade_1037() {
+        $customField = civicrm_api3('CustomField', 'get', [
+            'name' => 'Length_Of_Service',
+        ]);
+        civicrm_api3('CustomField', 'create', [
+                'id' => $customField['id'],
+                'is_view' => 1,
+            ]
+        );
+
+        $customGroup = civicrm_api3('CustomGroup', 'get', [
+            'name' => 'Contact_Length_Of_Service',
+        ]);
+        civicrm_api3('CustomGroup', 'create', [
+                'id' => $customGroup['id'],
+                'is_active' => 0,
+            ]
+        );
+
+        return TRUE;
+    }
   /**
    * Creates a navigation menu item using the API
    *
