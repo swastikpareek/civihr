@@ -87,9 +87,14 @@ class CRM_HRLeaveAndAbsences_Form_ManageEntitlements extends CRM_Core_Form {
     $this->assign('enabledAbsenceTypes', $this->getEnabledAbsenceTypes());
     $this->assign('returnUrl', $session->get('ManageEntitlementsReturnUrl'));
 
-    CRM_Core_Resources::singleton()->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'css/leaveandabsence.css', CRM_Core_Resources::DEFAULT_WEIGHT, 'html-header');
-    CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.reqangular', 'dist/reqangular.min.js', 1000);
-    CRM_Core_Resources::singleton()->addScriptFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'js/dist/crm-app-form-manage-entitlements.min.js', 1001);
+    CRM_Core_Resources::singleton()
+      ->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+        'css/leaveandabsence.css', CRM_Core_Resources::DEFAULT_WEIGHT, 'html-header')
+      ->addScriptFile('org.civicrm.reqangular',
+        'dist/reqangular.min.js', CRM_HRCore_Helper_ScriptResource::REQANGULAR_LOAD_WEIGHT)
+      ->addScriptFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+        'js/dist/crm-app-form-manage-entitlements.min.js', CRM_HRCore_Helper_ScriptResource::AMD_MODULE_LOAD_WEIGHT);
+
     parent::buildQuickForm();
   }
 

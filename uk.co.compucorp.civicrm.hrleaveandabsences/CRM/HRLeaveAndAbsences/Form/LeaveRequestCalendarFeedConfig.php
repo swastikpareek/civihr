@@ -52,7 +52,10 @@ class CRM_HRLeaveAndAbsences_Form_LeaveRequestCalendarFeedConfig extends CRM_Cor
     $this->addButtons($this->getAvailableButtons());
     $this->assign('deleteUrl', $this->getDeleteUrl());
 
-    CRM_Core_Resources::singleton()->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'css/leaveandabsence.css');
+    CRM_Core_Resources::singleton()
+      ->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+        'css/leaveandabsence.css');
+
     parent::buildQuickForm();
   }
 

@@ -56,9 +56,14 @@ class CRM_HRLeaveAndAbsences_Form_AbsenceType extends CRM_Core_Form {
     $this->assign('availableColors', json_encode(CRM_HRLeaveAndAbsences_BAO_AbsenceType::getAvailableColors()));
     $this->assign('hoursUnitValue', $this->getHoursCalculationUnitValue());
 
-    CRM_Core_Resources::singleton()->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'css/leaveandabsence.css');
-    CRM_Core_Resources::singleton()->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'css/spectrum.css');
-    CRM_Core_Resources::singleton()->addScriptFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'js/src/leave-absences/crm/vendor/spectrum/spectrum.min.js', CRM_Core_Resources::DEFAULT_WEIGHT, 'html-header');
+    CRM_Core_Resources::singleton()
+      ->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+        'css/leaveandabsence.css')
+      ->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+        'css/spectrum.css')
+      ->addScriptFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+        'js/src/leave-absences/crm/vendor/spectrum/spectrum.min.js', CRM_Core_Resources::DEFAULT_WEIGHT, 'html-header');
+
     parent::buildQuickForm();
   }
 

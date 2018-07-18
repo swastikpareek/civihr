@@ -54,8 +54,12 @@ class CRM_HRLeaveAndAbsences_Form_AbsencePeriod extends CRM_Core_Form {
     $this->addFieldsRules();
     $this->addButtons($this->getAvailableButtons());
 
-    CRM_Core_Resources::singleton()->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'css/leaveandabsence.css');
-    CRM_Core_Resources::singleton()->addScriptFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'js/dist/crm-app-form-absenceperiod.min.js', 1001);
+    CRM_Core_Resources::singleton()
+      ->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+        'css/leaveandabsence.css')
+      ->addScriptFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+        'js/dist/crm-app-form-absenceperiod.min.js', CRM_HRCore_Helper_ScriptResource::AMD_MODULE_LOAD_WEIGHT);
+
     parent::buildQuickForm();
   }
 

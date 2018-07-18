@@ -88,8 +88,11 @@ class CRM_HRLeaveAndAbsences_Form_WorkPattern extends CRM_Core_Form
         $this->assign('max_number_of_weeks', self::MAX_NUMBER_OF_WEEKS);
         $this->assign('delete_url', $this->getDeleteUrl());
 
-        CRM_Core_Resources::singleton()->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'css/leaveandabsence.css');
-        CRM_Core_Resources::singleton()->addScriptFile('uk.co.compucorp.civicrm.hrleaveandabsences', 'js/dist/crm-app-form-workpattern.min.js', 1001);
+        CRM_Core_Resources::singleton()
+          ->addStyleFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+            'css/leaveandabsence.css')
+          ->addScriptFile('uk.co.compucorp.civicrm.hrleaveandabsences',
+            'js/dist/crm-app-form-workpattern.min.js', CRM_HRCore_Helper_ScriptResource::AMD_MODULE_LOAD_WEIGHT);
 
         parent::buildQuickForm();
     }
