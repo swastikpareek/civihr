@@ -198,7 +198,7 @@
                             {if !empty($hookContent.userid)}
                               <a title="View user record" class="user-record-link" href="/user/{$hookContent.userid}">
                             {/if}
-                              {$hookContent.username|escape}
+                              {$hookContent.username}
                             {if !empty($hookContent.userid)}
                               </a>
                             {/if}

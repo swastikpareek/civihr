@@ -190,5 +190,8 @@ function hrcareer_civicrm_pageRun($page) {
 
     CRM_Core_Resources::singleton()
       ->addScriptFile('org.civicrm.hrcareer', 'js/hrcareer.js');
+
+    CRM_Core_Resources::singleton()
+      ->addStyleFile('org.civicrm.hrcareer', 'css/hrcareer.css');
   }
 }
