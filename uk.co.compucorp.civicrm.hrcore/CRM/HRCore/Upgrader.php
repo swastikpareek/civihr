@@ -29,15 +29,14 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
   use CRM_HRCore_Upgrader_Steps_1019;
   use CRM_HRCore_Upgrader_Steps_1020;
   use CRM_HRCore_Upgrader_Steps_1021;
-  use CRM_HRCore_Upgrader_Steps_1022;
-  use CRM_HRCore_Upgrader_Steps_1023;
-  use CRM_HRCore_Upgrader_Steps_1018;
-  use CRM_HRCore_Upgrader_Steps_1020;
-  use CRM_HRCore_Upgrader_Steps_1021;
   use CRM_HRCore_Upgrader_Steps_1023;
   use CRM_HRCore_Upgrader_Steps_1024;
   use CRM_HRCore_Upgrader_Steps_1025;
   use CRM_HRCore_Upgrader_Steps_1026;
+  use CRM_HRCore_Upgrader_Steps_1027;
+  use CRM_HRCore_Upgrader_Steps_1028;
+  use CRM_HRCore_Upgrader_Steps_1029;
+  use CRM_HRCore_Upgrader_Steps_1030;
 
 
   /**
@@ -50,7 +49,7 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
     'Mail Reports',
     'Process Inbound Emails',
     'Send Scheduled Mailings',
-    'Send Scheduled Reminders'
+    'Send Scheduled Reminders',
   ];
 
   /**
@@ -66,7 +65,7 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
     'Update Greetings and Addressees',
     'Update Membership Statuses',
     'Update Participant Statuses',
-    'Validate Email Address from Mailings.'
+    'Validate Email Address from Mailings.',
   ];
 
   /**
@@ -95,7 +94,7 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
    * (xml files ending with _install.xml) and processes them.
    */
   private function processXMLInstallationFiles() {
-    foreach($this->xmlDirectories as $directory) {
+    foreach ($this->xmlDirectories as $directory) {
       $files = glob($this->extensionDir . "/xml/{$directory}/*_install.xml");
       if (is_array($files)) {
         foreach ($files as $file) {
@@ -141,19 +140,23 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
    * groups.
    */
   private function deleteUnneededCustomGroups() {
-    $customGroups = ['Food_Preference', 'Donor_Information', 'constituent_information'];
+    $customGroups = [
+      'Food_Preference',
+      'Donor_Information',
+      'constituent_information',
+    ];
     try {
       civicrm_api3('CustomField', 'get', [
         'custom_group_id' => ['IN' => $customGroups],
-        'api.CustomField.delete' => ['id' => '$value.id']
+        'api.CustomField.delete' => ['id' => '$value.id'],
       ]);
 
       civicrm_api3('CustomGroup', 'get', [
         'name' => ['IN' => $customGroups],
-        'api.CustomGroup.delete' => ['id' => '$value.id']
+        'api.CustomGroup.delete' => ['id' => '$value.id'],
       ]);
+    } catch (Exception $e) {
     }
-    catch (Exception $e) {}
   }
 
   /**
@@ -181,19 +184,19 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
     civicrm_api3('Job', 'get', [
       'sequential' => 1,
       'name' => $jobName,
-      'api.Job.create' => ['id' => "\$value.id", 'is_active' => $isActive]
+      'api.Job.create' => ['id' => "\$value.id", 'is_active' => $isActive],
     ]);
   }
 
   private function deleteLocationTypes() {
     $locationsToDelete = [
       'Main',
-      'Other'
+      'Other',
     ];
 
     civicrm_api3('LocationType', 'get', [
       'name' => ['IN' => $locationsToDelete],
-      'api.LocationType.delete' => ['id' => "\$value.id"]
+      'api.LocationType.delete' => ['id' => "\$value.id"],
     ]);
 
   }
@@ -208,7 +211,7 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
 
     foreach ($locationTypesToCreate as $locationTypeName) {
       $existing = civicrm_api3('LocationType', 'get', [
-        'name' => $locationTypeName
+        'name' => $locationTypeName,
       ]);
 
       if ($existing['count'] > 0) {
@@ -220,7 +223,7 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
         'display_name' => $locationTypeName,
         'vcard_name' => strtoupper($locationTypeName),
         'is_reserved' => 1,
-        'is_active' => 1
+        'is_active' => 1,
       ]);
     }
   }
@@ -309,7 +312,7 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
           'id' => '$value.id',
           'name_a_b' => '$value.name_a_b',
           'name_b_a' => '$value.name_b_a',
-          'is_active' => $setActive
+          'is_active' => $setActive,
         ],
       ]);
     }
@@ -322,8 +325,16 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
    */
   public function defaultRelationshipsTypes() {
     $list = [
-      ['name_a_b' => 'HR Manager is', 'name_b_a' => 'HR Manager', 'description' => 'HR Manager'],
-      ['name_a_b' => 'Line Manager is', 'name_b_a' => 'Line Manager', 'description' => 'Line Manager'],
+      [
+        'name_a_b' => 'HR Manager is',
+        'name_b_a' => 'HR Manager',
+        'description' => 'HR Manager',
+      ],
+      [
+        'name_a_b' => 'Line Manager is',
+        'name_b_a' => 'Line Manager',
+        'description' => 'Line Manager',
+      ],
     ];
 
     // (Recruiting Manager) should be included only if hrrecruitment extension is disabled.
@@ -331,7 +342,7 @@ class CRM_HRCore_Upgrader extends CRM_HRCore_Upgrader_Base {
       $list[] = [
         'name_a_b' => 'Recruiting Manager is',
         'name_b_a' => 'Recruiting Manager',
-        'description' => 'Recruiting Manager'
+        'description' => 'Recruiting Manager',
       ];
     }
 

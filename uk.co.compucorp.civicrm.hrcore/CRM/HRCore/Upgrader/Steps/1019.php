@@ -28,8 +28,15 @@ trait CRM_HRCore_Upgrader_Steps_1019 {
       'Voicemail' => 'Mobile',
     ];
     foreach ($phoneTypes as $originalType => $newType) {
+      $result = civicrm_api3('OptionValue', 'get', [
+        'return' => ['id'],
+        'option_group_id' => 'phone_type',
+        'name' => $originalType,
+      ]);
+      if ($result['count'] != 1) {
+        continue;
+      }
       $result = civicrm_api3('Phone', 'get', [
-        'sequential' => 1,
         'return' => ['id', 'phone_type_id', 'is_primary', 'phone'],
         'phone_type_id' => $originalType,
       ]);
