@@ -94,7 +94,8 @@ class api_v3_LeaveRequestCalendarFeedConfigTest extends BaseHeadlessTest {
     //Assign the contact to a job role with access to location1
     HRJobRolesFabricator::fabricate([
       'job_contract_id' => $contract1['id'],
-      'location' => $location1['value']
+      'location' => $location1['value'],
+      'start_date' => date('Y-m-d H:i:s')
     ]);
 
     $feedConfig1 = LeaveCalendarFeedConfigFabricator::fabricate([
@@ -147,7 +148,8 @@ class api_v3_LeaveRequestCalendarFeedConfigTest extends BaseHeadlessTest {
     //Assign the contact to a job role with access to department
     HRJobRolesFabricator::fabricate([
       'job_contract_id' => $contract1['id'],
-      'department' => $department1['value']
+      'department' => $department1['value'],
+      'start_date' => date('Y-m-d H:i:s')
     ]);
 
     $feedConfig1 = LeaveCalendarFeedConfigFabricator::fabricate([
@@ -202,7 +204,8 @@ class api_v3_LeaveRequestCalendarFeedConfigTest extends BaseHeadlessTest {
     HRJobRolesFabricator::fabricate([
       'job_contract_id' => $contract1['id'],
       'department' => $department1['value'],
-      'location' => $location1['value']
+      'location' => $location1['value'],
+      'start_date' => date('Y-m-d H:i:s')
     ]);
 
     $feedConfig1 = LeaveCalendarFeedConfigFabricator::fabricate([

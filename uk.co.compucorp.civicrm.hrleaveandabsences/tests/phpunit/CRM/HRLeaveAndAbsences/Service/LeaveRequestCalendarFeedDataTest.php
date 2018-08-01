@@ -82,26 +82,30 @@ class CRM_HRLeaveAndAbsences_Service_LeaveRequestCalendarFeedDataTest extends Ba
     HRJobRolesFabricator::fabricate([
       'job_contract_id' => $contract1['id'],
       'department' => $department1['value'],
+      'start_date' => date('Y-m-d H:i:s'),
     ]);
 
     //contact2 assigned to location1
     HRJobRolesFabricator::fabricate([
       'job_contract_id' => $contract2['id'],
-      'location' => $location1['value']
+      'location' => $location1['value'],
+      'start_date' => date('Y-m-d H:i:s')
     ]);
 
     //contact3 assigned to location1 and department1
     HRJobRolesFabricator::fabricate([
       'job_contract_id' => $contract3['id'],
       'location' => $location1['value'],
-      'department' => $department1['value']
+      'department' => $department1['value'],
+      'start_date' => date('Y-m-d H:i:s')
     ]);
 
     //contact4 assigned to both location2 and department2
     HRJobRolesFabricator::fabricate([
       'job_contract_id' => $contract4['id'],
       'location' => $location2['value'],
-      'department' => $department2['value']
+      'department' => $department2['value'],
+      'start_date' => date('Y-m-d H:i:s')
     ]);
 
     $params[1] = [

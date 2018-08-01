@@ -129,6 +129,11 @@ class CRM_Hrjobroles_API_Query_ContactHrJobRolesSelect {
       $customQuery->where($conditions);
       unset($this->params['contact_id']);
     }
+
+    $dateRestriction = 'a.start_date <= "' . date('Y-m-d H:i:s') . '"';
+    $dateRestriction .= ' AND (a.end_date >= "'. date('Y-m-d H:i:s') . '" OR a.end_date IS NULL)';
+    $conditions[] = $dateRestriction;
+    $customQuery->where($conditions);
   }
 
   /**

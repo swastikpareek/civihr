@@ -99,9 +99,9 @@ class api_v3_ContactHRJobRoleTest extends CRM_Hrjobroles_Test_BaseHeadlessTest {
     $contact2 = ContactFabricator::fabricate();
     $contract1 = HRJobContractFabricator::fabricate(['contact_id' => $contact1['id']]);
     $contract2 = HRJobContractFabricator::fabricate(['contact_id' => $contact2['id']]);
-    $jobRole1 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract1['id'],]);
-    $jobRole2 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract1['id'],]);
-    $jobRole3 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract2['id'],]);
+    $jobRole1 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract1['id'], 'start_date' => date('Y-m-d H:i:s'),]);
+    $jobRole2 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract1['id'], 'start_date' => date('Y-m-d H:i:s'),]);
+    $jobRole3 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract2['id'], 'start_date' => date('Y-m-d H:i:s'),]);
 
     $contactJobRoles = civicrm_api3($this->entity, $this->action)['values'];
 
@@ -147,9 +147,9 @@ class api_v3_ContactHRJobRoleTest extends CRM_Hrjobroles_Test_BaseHeadlessTest {
     $contract1 = HRJobContractFabricator::fabricate(['contact_id' => $contact1['id']]);
     $contract2 = HRJobContractFabricator::fabricate(['contact_id' => $contact2['id']]);
     $contract3 = HRJobContractFabricator::fabricate(['contact_id' => $contact3['id']]);
-    $jobRole1 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract1['id']]);
-    $jobRole2 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract2['id']]);
-    $jobRole3 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract3['id']]);
+    $jobRole1 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract1['id'], 'start_date' => date('Y-m-d H:i:s'),]);
+    $jobRole2 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract2['id'], 'start_date' => date('Y-m-d H:i:s'),]);
+    $jobRole3 = HRJobRolesFabricator::fabricate(['job_contract_id' => $contract3['id'], 'start_date' => date('Y-m-d H:i:s'),]);
 
     //Get Jobroles for contact1 and contact3
     $contactJobRoles = civicrm_api3($this->entity, $this->action, [
